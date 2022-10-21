@@ -1,0 +1,3 @@
+[submodule "libs/ksystem"]
+	path = libs/ksystem
+	url = git@github.com:KrystianD/ksystem.git
