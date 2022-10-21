@@ -1,0 +1,48 @@
+frequency: 8000000
+
+components:
+  systick:
+    frequency: 1000
+    timer: 2
+    systimers:
+      - name: readTimer
+        repeat: true
+        handler: false
+  
+  serial:
+    baudrate: 9600
+    stdio: false
+  
+  gpio:
+    - led:
+        port: C0
+        mode: push-pull
+        value: false
+    
+    - dir:
+        port: D2
+        mode: push-pull
+        value: false
+    
+    - addr1:
+        port: C3
+        mode: input
+        value: false
+    
+    - addr2:
+        port: C2
+        mode: input
+        value: false
+    
+    - addr4:
+        port: C1
+        mode: input
+        value: false
+  
+  modbus:
+    rs485_dir_pin: dir
+    missing_as_zero: true
+    functions:
+      - read_input
+      - read_holding
+      - write_holding

@@ -1,0 +1,6 @@
+[submodule "libs/avr-eeprom-wear-leveling"]
+	path = libs/avr-eeprom-wear-leveling
+	url = git@github.com:KrystianD/avr-eeprom-wear-leveling.git
+[submodule "libs/ksystem"]
+	path = libs/ksystem
+	url = git@github.com:KrystianD/ksystem.git
