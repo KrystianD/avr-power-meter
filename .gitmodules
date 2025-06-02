@@ -1,0 +1,6 @@
+[submodule "libs/dev_attiny"]
+	path = libs/dev_attiny
+	url = https://github.com/KrystianD/dev_attiny.git
+[submodule "libs/ksystem"]
+	path = libs/ksystem
+	url = https://github.com/KrystianD/ksystem.git

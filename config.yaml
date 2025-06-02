@@ -1,0 +1,46 @@
+family: attiny
+device: attiny1626
+frequency: 16000000
+
+components:
+  systick:
+    frequency: 1000
+
+  serial:
+    debug:
+      usart: USART0
+      baudrate: 115200
+      pin_tx: B2
+      pin_rx: B3
+    modbus:
+      usart: USART1
+      baudrate: 115200
+      pin_tx: A1
+      pin_rx: A2
+      pin_xdir: A4
+      
+  stdio:
+    serial: debug
+    float: true
+
+  gpio:
+    - scl:
+        port: B0
+        mode: input
+    - sda:
+        port: B1
+        mode: input
+    - alert:
+        port: B3
+        mode: input
+    - led:
+        port: A7
+        mode: push-pull
+  
+  modbus:
+    serial: modbus
+    missing_as_zero: true
+    functions:
+      - read_input
+      - read_holding
+      - write_holding

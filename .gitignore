@@ -1,0 +1,19 @@
+# project
+.idea/
+
+# firmware
+cmake-build-*/
+
+# CAD models
+*.FCBak
+
+# board
+board/**/*.kicad_prl
+board/**/*.kicad_sch-bak
+board/**/fp-info-cache
+board/**/*-backups/
+board/**/*.ps
+board/**/*.step
+board/**/*.zip
+
+

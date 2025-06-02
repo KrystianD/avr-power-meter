@@ -1,0 +1,5 @@
+device: attiny1626
+fuses:
+  frequency: 16
+  
+  bod_level: 4.3
