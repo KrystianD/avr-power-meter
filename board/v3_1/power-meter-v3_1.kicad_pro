@@ -712,7 +712,7 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "kicad-embed://kd.kicad_wks",
     "plot_directory": "",
     "reuse_designators": true,
     "space_save_all_events": true,
@@ -731,7 +731,7 @@
         "uuid": "6f8f3d29-f8e4-411e-86bb-594799f8498b"
       }
     ],
-    "used_designators": ""
+    "used_designators": "J6"
   },
   "sheets": [
     [
