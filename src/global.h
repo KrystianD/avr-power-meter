@@ -15,6 +15,7 @@ struct GlobalState
 	float power;
 	float energy;
 	float charge;
+	float mcuVoltage;
 
 	int16_t raw_dieTemp;
 	uint32_t raw_vbus;

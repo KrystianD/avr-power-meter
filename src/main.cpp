@@ -4,6 +4,7 @@
 
 #include "ina228.h"
 #include "global.h"
+#include <kADC.h>
 
 float currentLsb;
 
@@ -46,6 +47,17 @@ void setup()
 	Modbus.start(config.slaveId);
 }
 
+uint16_t getMcuSupplyVoltage_mV()
+{
+	kADC::configureAll<8, ADC_REFSEL_1024MV_gc, 20>();
+
+	uint16_t adc_voltDiv10 = kADC::doConversion12Bit(ADC_MUXPOS_VDDDIV10_gc);
+	// Vsupply_mV = adc_voltDiv10 / 4096 * 1024 * 10
+	uint16_t Vsupply_mV = adc_voltDiv10 * 5 / 2;
+
+	return Vsupply_mV;
+}
+
 void loop()
 {
 	static int i = 0;
@@ -60,6 +72,8 @@ void loop()
 		ina228::readEnergyValue(global::state.raw_energy);
 		ina228::readChargeValue(global::state.raw_charge);
 
+		uint16_t mcuVoltage = getMcuSupplyVoltage_mV();
+
 		constexpr float Scale_mV = 1000000.0f;
 		constexpr float Scale_nV = 1000000000.0f;
 
@@ -70,6 +84,7 @@ void loop()
 		global::state.power = currentLsb * (float)global::state.raw_power * 3.2f /* [W] */;
 		global::state.energy = currentLsb * (float)global::state.raw_energy * (3.2f * 16) /* [Ws] */ / 3600.0f /* [Wh] */;
 		global::state.charge = currentLsb * (float)global::state.raw_charge /* [As] */ / 3600.0f /* [Ah] */;
+		global::state.mcuVoltage = mcuVoltage;
 
 		i++;
 		if (i == 100) {

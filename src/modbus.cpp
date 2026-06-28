@@ -38,6 +38,9 @@ bool modbusHandleReadInputRegister(uint16_t address, ModbusReturnValue& value)
 		case 28:
 			return value.U32BE(global::state.raw_charge);
 
+		case 30:
+			return value.U16(global::state.mcuVoltage);
+
 		default:
 			return false;
 	}
