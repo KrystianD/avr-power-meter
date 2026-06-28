@@ -41,4 +41,5 @@ namespace global
 {
 extern GlobalState state;
 extern EEPROMMemory<Config> eeConfig;
+extern int requestRebootCounter;
 }

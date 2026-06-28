@@ -2,11 +2,6 @@
 
 #include "global.h"
 
-void reboot()
-{
-	_PROTECTED_WRITE(RSTCTRL.SWRR, 1);
-}
-
 #ifdef MODBUS_ENABLED
 bool modbusHandleReadInputRegister(uint16_t address, ModbusReturnValue& value)
 {
@@ -108,8 +103,9 @@ bool modbusHandleWriteHoldingRegister(uint16_t address, ModbusValue value)
 			global::eeConfig.set(config);
 			return true;
 		case 100:
-			if (value.u16 == 1)
-				reboot();
+			if (value.u16 == 1) {
+				global::requestRebootCounter = 100;
+			}
 			return true;
 		default:
 			return false;

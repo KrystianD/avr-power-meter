@@ -7,6 +7,8 @@
 
 float currentLsb;
 
+void reboot();
+
 void setup()
 {
 	scl.input();
@@ -81,5 +83,18 @@ void loop()
 			printf("CHARGE  = %10.0f, %10f\r\n", (float)global::state.raw_charge, global::state.charge);
 			i = 0;
 		}
+
+		if (global::requestRebootCounter > 0) {
+			global::requestRebootCounter--;
+
+			if (global::requestRebootCounter == 0) {
+				reboot();
+			}
+		}
 	}
+}
+
+void reboot()
+{
+	_PROTECTED_WRITE(RSTCTRL.SWRR, 1);
 }
