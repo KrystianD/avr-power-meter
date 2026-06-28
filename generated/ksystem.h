@@ -6,7 +6,7 @@
 #include <kSerial.h>
 #include <kGPIO.h>
 #include <kSysTick.h>
-#include <stdio.h>
+#include <dummy_stdio.h>
 #include <kGPIO.h>
 #include <kModbus.h>
 
@@ -22,7 +22,7 @@ static kSerial<kUSART1> modbus;
 typedef kSysTick<33> kConfiguredSysTick;
 extern kConfiguredSysTick SysTick;
 
-// Component: StdioComponent
+// Component: DummyStdioComponent
 
 // Component: GPIOComponent
 static kGPIO<kPORTB,0> scl;

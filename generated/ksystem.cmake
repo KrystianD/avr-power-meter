@@ -26,9 +26,3 @@ avr_target_include_directories(ksystem PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/../libs/ksystem/third-party/freemodbus/modbus/include
   ${CMAKE_CURRENT_LIST_DIR}/../libs/ksystem/third-party/freemodbus/modbus/rtu
 )
-
-avr_target_link_libraries(ksystem "-Wl,-u,vfprintf")
-
-avr_target_link_libraries(ksystem "-lprintf_flt")
-
-avr_target_link_libraries(ksystem "-lm")

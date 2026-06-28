@@ -20,24 +20,6 @@ ISR(USART1_DRE_vect)
   pxMBFrameCBTransmitterEmpty();
 }
 kConfiguredSysTick SysTick;
-
-FILE uart_stdout = {
-        .buf = 0,
-        .unget = 0,
-        .flags = _FDEV_SETUP_RW,
-        .size = 0,
-        .len = 0,
-        .put = [](char c, struct __file*) { 
-            if (c == '\n')
-                debug.put('\r');
-            if (c != '\r')
-                debug.put(c);
-            return 1;
-        },
-        .get = nullptr,
-        .udata = nullptr,
-};
-
 extern void setup();
 extern void loop();
 
@@ -49,7 +31,7 @@ extern void loop();
 
 // Component: SysTickComponent
 
-// Component: StdioComponent
+// Component: DummyStdioComponent
 
 // Component: GPIOComponent
 
@@ -89,11 +71,8 @@ int main()
     SysTick.init();
   }
 
-  // Component: StdioComponent
+  // Component: DummyStdioComponent
   {
-
-    // Setup stdio
-    stdout = &uart_stdout;
   }
 
   // Component: GPIOComponent
@@ -120,7 +99,7 @@ int main()
 
     // Component: SysTickComponent
 
-    // Component: StdioComponent
+    // Component: DummyStdioComponent
 
     // Component: GPIOComponent
 

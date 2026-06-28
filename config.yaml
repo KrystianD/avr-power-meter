@@ -19,9 +19,9 @@ components:
       pin_rx: A2
       pin_xdir: A4
       
-  stdio:
-    serial: debug
-    float: true
+  # stdio:
+  #   serial: debug
+  #   float: false
 
   gpio:
     - scl:

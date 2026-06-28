@@ -10,7 +10,7 @@
 
 // Component: SysTickComponent
 
-// Component: StdioComponent
+// Component: DummyStdioComponent
 
 // Component: GPIOComponent
 
