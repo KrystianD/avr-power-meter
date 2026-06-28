@@ -71,7 +71,7 @@ enum class Registers : uint8_t
 	POWER = 0x08,
 	ENERGY = 0x09,
 	CHARGE = 0x0a,
-	DIAG_ALERT = 0x0b,
+	DIAG_ALRT = 0x0b,
 };
 
 #pragma pack(1)

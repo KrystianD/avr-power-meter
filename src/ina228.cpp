@@ -90,7 +90,7 @@ bool writeAdcConfig(const AdcConfiguration& config)
 bool clearStatus()
 {
 	int16_t i16;
-	return readRegister16(Registers::DIAG_ALERT, &i16);
+	return readRegister16(Registers::DIAG_ALRT, &i16);
 }
 
 bool readDieTempValue(int16_t& val)

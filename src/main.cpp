@@ -34,7 +34,7 @@ void setup()
 	};
 
 	ina228::writeAdcConfig(conf);
-	ina228::writeRegister16(ina228::Registers::DIAG_ALERT, _BV(14));
+	ina228::writeRegister16(ina228::Registers::DIAG_ALRT, _BV(14));
 
 	currentLsb = (float)config.shuntRatedCurrent_A / 524288.0f; // 2^19
 	uint16_t shuntCal = (uint16_t)(100000.0f * (float)config.shuntRatedVoltageDrop_mV / 1000.0f / 4.0);
